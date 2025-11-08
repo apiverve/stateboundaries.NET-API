@@ -4,130 +4,139 @@ using Newtonsoft.Json;
 
 namespace APIVerve
 {
-public class geometry
-{
-    [JsonProperty("coordinates")]
-    public double[][][][] coordinates { get; set; }
+    /// <summary>
+    /// Geometry data
+    /// </summary>
+    public class Geometry
+    {
+        [JsonProperty("coordinates")]
+        public double[][][][] Coordinates { get; set; }
 
-    [JsonProperty("type")]
-    public string type { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
 
-}
+    }
+    /// <summary>
+    /// Geopoint2d data
+    /// </summary>
+    public class Geopoint2d
+    {
+        [JsonProperty("lon")]
+        public double Lon { get; set; }
 
-public class geopoint2d
-{
-    [JsonProperty("lon")]
-    public double lon { get; set; }
+        [JsonProperty("lat")]
+        public double Lat { get; set; }
 
-    [JsonProperty("lat")]
-    public double lat { get; set; }
+    }
+    /// <summary>
+    /// Properties data
+    /// </summary>
+    public class Properties
+    {
+        [JsonProperty("gid")]
+        public int Gid { get; set; }
 
-}
+        [JsonProperty("arealand")]
+        public string Arealand { get; set; }
 
-public class properties
-{
-    [JsonProperty("gid")]
-    public int gid { get; set; }
+        [JsonProperty("division")]
+        public int Division { get; set; }
 
-    [JsonProperty("arealand")]
-    public string arealand { get; set; }
+        [JsonProperty("intptlat")]
+        public double Intptlat { get; set; }
 
-    [JsonProperty("division")]
-    public int division { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
-    [JsonProperty("intptlat")]
-    public double intptlat { get; set; }
+        [JsonProperty("objectid")]
+        public int Objectid { get; set; }
 
-    [JsonProperty("name")]
-    public string name { get; set; }
+        [JsonProperty("areawater")]
+        public string Areawater { get; set; }
 
-    [JsonProperty("objectid")]
-    public int objectid { get; set; }
+        [JsonProperty("intptlon")]
+        public double Intptlon { get; set; }
 
-    [JsonProperty("areawater")]
-    public string areawater { get; set; }
+        [JsonProperty("oid")]
+        public string Oid { get; set; }
 
-    [JsonProperty("intptlon")]
-    public double intptlon { get; set; }
+        [JsonProperty("funcstat")]
+        public string Funcstat { get; set; }
 
-    [JsonProperty("oid")]
-    public string oid { get; set; }
+        [JsonProperty("centlon")]
+        public double Centlon { get; set; }
 
-    [JsonProperty("funcstat")]
-    public string funcstat { get; set; }
+        [JsonProperty("stusab")]
+        public string Stusab { get; set; }
 
-    [JsonProperty("centlon")]
-    public double centlon { get; set; }
+        [JsonProperty("state")]
+        public string State { get; set; }
 
-    [JsonProperty("stusab")]
-    public string stusab { get; set; }
+        [JsonProperty("statens")]
+        public string Statens { get; set; }
 
-    [JsonProperty("state")]
-    public string state { get; set; }
+        [JsonProperty("centlat")]
+        public double Centlat { get; set; }
 
-    [JsonProperty("statens")]
-    public string statens { get; set; }
+        [JsonProperty("basename")]
+        public string Basename { get; set; }
 
-    [JsonProperty("centlat")]
-    public double centlat { get; set; }
+        [JsonProperty("mtfcc")]
+        public string Mtfcc { get; set; }
 
-    [JsonProperty("basename")]
-    public string basename { get; set; }
+        [JsonProperty("region")]
+        public int Region { get; set; }
 
-    [JsonProperty("mtfcc")]
-    public string mtfcc { get; set; }
+        [JsonProperty("lsadc")]
+        public string Lsadc { get; set; }
 
-    [JsonProperty("region")]
-    public int region { get; set; }
+        [JsonProperty("geoid")]
+        public string Geoid { get; set; }
 
-    [JsonProperty("lsadc")]
-    public string lsadc { get; set; }
+        [JsonProperty("geo_point_2d")]
+        public Geopoint2d Geopoint2d { get; set; }
 
-    [JsonProperty("geoid")]
-    public string geoid { get; set; }
+    }
+    /// <summary>
+    /// Features data
+    /// </summary>
+    public class Features
+    {
+        [JsonProperty("type")]
+        public string Type { get; set; }
 
-    [JsonProperty("geo_point_2d")]
-    public geopoint2d geopoint2d { get; set; }
+        [JsonProperty("geometry")]
+        public Geometry Geometry { get; set; }
 
-}
+        [JsonProperty("properties")]
+        public Properties Properties { get; set; }
 
-public class features
-{
-    [JsonProperty("type")]
-    public string type { get; set; }
+    }
+    /// <summary>
+    /// Data data
+    /// </summary>
+    public class Data
+    {
+        [JsonProperty("type")]
+        public string Type { get; set; }
 
-    [JsonProperty("geometry")]
-    public geometry geometry { get; set; }
+        [JsonProperty("features")]
+        public Features[] Features { get; set; }
 
-    [JsonProperty("properties")]
-    public properties properties { get; set; }
+    }
+    /// <summary>
+    /// API Response object
+    /// </summary>
+    public class ResponseObj
+    {
+        [JsonProperty("status")]
+        public string Status { get; set; }
 
-}
+        [JsonProperty("error")]
+        public object Error { get; set; }
 
-public class data
-{
-    [JsonProperty("type")]
-    public string type { get; set; }
+        [JsonProperty("data")]
+        public Data Data { get; set; }
 
-    [JsonProperty("features")]
-    public features[] features { get; set; }
-
-}
-
-public class ResponseObj
-{
-    [JsonProperty("status")]
-    public string status { get; set; }
-
-    [JsonProperty("error")]
-    public object error { get; set; }
-
-    [JsonProperty("data")]
-    public data data { get; set; }
-
-    [JsonProperty("code")]
-    public int code { get; set; }
-
-}
-
+    }
 }
